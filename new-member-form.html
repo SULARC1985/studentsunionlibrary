@@ -119,17 +119,23 @@ button{border:0;padding:12px 18px;border-radius:7px;font-weight:700;cursor:point
     </div>
 
     <h2>Documents</h2>
-    <div class="grid">
+    <div class="note">
+      <strong>Photo & Address Proof:</strong><br>
+      For your privacy and security, this website does not upload or store these documents yet.
+      Please bring the member photo and address proof to the library when submitting the application.
+      Online document upload will be enabled only after the secure library server is ready.
+    </div>
+
+    <div class="grid" style="margin-top:14px">
       <div>
         <label>Member Photo</label>
-        <input type="file" accept="image/*">
+        <input type="text" value="Submit at library" readonly>
       </div>
       <div>
         <label>Address Proof</label>
-        <input type="file" accept=".pdf,image/*">
+        <input type="text" value="Submit at library" readonly>
       </div>
     </div>
-    <p class="small">For this printable website form, selected files are not uploaded anywhere. They can be attached separately when online submission is enabled.</p>
 
     <h2>Declaration</h2>
     <div class="checks">
@@ -146,6 +152,13 @@ button{border:0;padding:12px 18px;border-radius:7px;font-weight:700;cursor:point
     <div class="footer-sign">
       <div class="sign">Applicant / Parent Signature</div>
       <div class="sign">Librarian / Authorised Signature</div>
+    </div>
+
+    <div class="note" style="margin-top:18px">
+      <strong>Future online submission:</strong><br>
+      When the library software is ready, submitted applications will appear in a private
+      <em>Pending Online Applications</em> section for the librarian to review, approve or reject.
+      Member photos and address proofs will be stored privately on the secure library server, not on GitHub.
     </div>
 
     <div class="actions">
