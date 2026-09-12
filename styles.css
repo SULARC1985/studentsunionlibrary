@@ -3,3 +3,20 @@
 .membership-apply{margin-top:28px;padding:24px;background:#fff;border:1px solid #e3dbc8;border-radius:10px}
 .membership-apply h3{margin:0 0 6px;color:#092b58}
 .membership-apply p{margin:0 0 16px;color:#626a73}
+
+.lang-switch{display:flex;gap:4px;margin-left:4px}
+.lang-switch button{border:1px solid #d5c79e;background:#fff;color:#092b58;padding:5px 8px;border-radius:5px;font-weight:800;cursor:pointer}
+.lang-switch button.active{background:#b58a27;color:#fff;border-color:#b58a27}
+.catalogue-status{margin-top:28px;padding:20px;border:1px solid #31517a;background:#0e3564;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.catalogue-status div{display:grid}
+.catalogue-status strong{font-size:1.15rem;color:#e0bb5c}
+.catalogue-status span{color:#c7d1de}
+.catalogue-btn{display:inline-block;background:#b58a27;color:white;text-decoration:none;font-weight:800;padding:11px 16px;border-radius:7px;white-space:nowrap}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.contact-cards{display:grid;gap:16px}
+.contact-card{background:#faf7ef;border:1px solid #e5dcc8;border-left:4px solid #b58a27;border-radius:10px;padding:20px}
+.contact-card small{color:#a37b1e;font-weight:800;letter-spacing:.12em}
+.contact-card h3{margin:6px 0 10px;color:#092b58}
+.contact-line{display:block;color:#092b58;text-decoration:none;font-weight:700;margin:7px 0;word-break:break-word}
+.wa-btn{display:inline-block;margin-top:8px;background:#f3efe1;color:#092b58;border:1px solid #d5c79e;text-decoration:none;font-weight:800;padding:10px 14px;border-radius:7px}
+@media(max-width:850px){.lang-switch{margin-top:8px}.contact-layout{grid-template-columns:1fr}.catalogue-status{flex-direction:column;align-items:flex-start}}
