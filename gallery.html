@@ -30,7 +30,9 @@ const root=document.getElementById('galleryAlbums');
 const albums=(window.SULARC_CONTENT&&SULARC_CONTENT.gallery)||[];
 root.innerHTML=albums.map(a=>`
 <article class="card gallery-album">
-  <div class="gallery-placeholder">📷</div>
+  ${(a.images||[]).length
+    ? `<div class="gallery-grid">${a.images.map(img=>`<img src="${img}" alt="${a.album||'Gallery photo'}" loading="lazy">`).join("")}</div>`
+    : `<div class="gallery-placeholder">📷</div>`}
   <h3>${a.album||''}</h3>
   <p>${a.description||''}</p>
   <span class="badge">${(a.images||[]).length} photos</span>

@@ -2,3 +2,7 @@
 .photo-safety{background:#fff8df;border:1px solid #e6d28d;border-left:4px solid #b58a27;padding:14px 16px;border-radius:8px;color:#5b4b20}
 .gallery-placeholder{height:150px;border-radius:8px;background:#f3efe1;display:grid;place-items:center;font-size:2.2rem;margin-bottom:14px}
 .gallery-album{min-height:280px}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:14px}
+.gallery-grid img{width:100%;height:130px;object-fit:cover;border-radius:7px;border:1px solid #e5dcc8}
+@media(max-width:600px){.gallery-grid img{height:110px}}
