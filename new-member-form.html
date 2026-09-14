@@ -1,175 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Member Application - Student's Union Library</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#f5f2e8;font-family:Arial,Helvetica,sans-serif;color:#10233f}
-.page{max-width:900px;margin:24px auto;background:#fff;padding:28px;border:1px solid #ded6c3;border-radius:12px}
-.header{text-align:center;border-bottom:3px solid #b58a27;padding-bottom:16px;margin-bottom:22px}
-.header h1{margin:0;color:#092b58;font-size:28px}
-.header p{margin:5px 0}
-.reg{font-weight:700;color:#8b691f}
-h2{font-size:18px;color:#092b58;border-left:4px solid #b58a27;padding-left:10px;margin-top:26px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.full{grid-column:1/-1}
-label{display:block;font-weight:700;font-size:13px;margin-bottom:5px}
-input,select,textarea{width:100%;padding:10px;border:1px solid #b8c1cc;border-radius:6px;font-size:15px;background:#fff}
-textarea{min-height:78px;resize:vertical}
-.note{background:#faf7ef;border:1px solid #e7dcc1;padding:12px;border-radius:8px;font-size:13px}
-.checks{display:grid;gap:8px}
-.checks label{font-weight:400}
-.checks input{width:auto;margin-right:8px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
-button{border:0;padding:12px 18px;border-radius:7px;font-weight:700;cursor:pointer}
-.primary{background:#092b58;color:#fff}
-.secondary{background:#b58a27;color:#fff}
-.footer-sign{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
-.sign{border-top:1px solid #333;padding-top:8px;text-align:center}
-.small{font-size:12px;color:#666}
-@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-sign{grid-template-columns:1fr}.page{margin:0;border-radius:0;padding:18px}}
-@media print{body{background:#fff}.page{border:0;margin:0;max-width:none;padding:10mm}.actions{display:none}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Membership Application | Student's Union Library</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="page">
-  <div class="header">
-    <h1>Student's Union Library & Recreation Centre</h1>
-    <p>Poonthura, Thiruvananthapuram</p>
-    <p class="reg">Reg. No. 01/TVM/3952</p>
-    <h2 style="border:0;padding:0;margin-top:14px">NEW MEMBER APPLICATION FORM</h2>
+<header class="top"><div class="wrap nav">
+<a class="identity" href="index.html"><img src="library-logo.png" alt="Library logo"><div><b>Student's Union Library</b><small>&amp; Recreation Centre · Poonthura</small></div></a>
+<button class="menu" aria-label="Menu">☰</button>
+<nav><a href="index.html">Home</a><a href="catalogue.html">Catalogue</a><a href="member-login.html">Member Login</a><a href="events.html">Events</a><a href="gallery.html">Gallery</a><a href="index.html#contact">Contact</a></nav>
+</div></header>
+
+<section class="page-hero"><div class="wrap">
+<span class="eyebrow">Membership</span>
+<h1>Apply for Library Membership</h1>
+<p>The online membership application is ready in the library software for all membership categories. Applications are reviewed by the librarian before activation.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="portal-connect-card">
+  <div class="portal-status-icon">🔒</div>
+  <div>
+    <h2 id="portalTitle">Secure online service</h2>
+    <p id="portalMessage">This service is ready in the library software but is not yet connected to a permanent public HTTPS address.</p>
+    <a id="portalButton" class="primary portal-disabled" href="#" aria-disabled="true">Open Membership Application</a>
+    <p class="portal-note">The public website will activate this button after the library portal receives a stable HTTPS address.</p>
   </div>
-
-  <form id="memberForm">
-    <h2>Membership Details</h2>
-    <div class="grid">
-      <div>
-        <label>Membership Category *</label>
-        <select required>
-          <option value="">Select category</option>
-          <option>General Member</option>
-          <option>Balavedi</option>
-          <option>Young Adult</option>
-          <option>Senior Citizens' Wing</option>
-          <option>Vanitha Vedi</option>
-        </select>
-      </div>
-      <div>
-        <label>Membership Type</label>
-        <select>
-          <option>Yearly</option>
-          <option>Monthly</option>
-        </select>
-      </div>
-    </div>
-
-    <h2>Personal Details</h2>
-    <div class="grid">
-      <div class="full">
-        <label>Full Name *</label>
-        <input required type="text" placeholder="Enter full name">
-      </div>
-      <div>
-        <label>Date of Birth *</label>
-        <input required type="date">
-      </div>
-      <div>
-        <label>Gender</label>
-        <select>
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div>
-        <label>Mobile Number *</label>
-        <input required type="tel" placeholder="10-digit mobile number">
-      </div>
-      <div>
-        <label>Email</label>
-        <input type="email" placeholder="Email address">
-      </div>
-      <div class="full">
-        <label>Residential Address *</label>
-        <textarea required placeholder="House name, street, locality, post office, PIN"></textarea>
-      </div>
-      <div>
-        <label>PIN Code</label>
-        <input type="text" inputmode="numeric">
-      </div>
-      <div>
-        <label>Occupation / School / College</label>
-        <input type="text">
-      </div>
-    </div>
-
-    <h2>Parent / Guardian Details (for minors)</h2>
-    <div class="grid">
-      <div>
-        <label>Parent / Guardian Name</label>
-        <input type="text">
-      </div>
-      <div>
-        <label>Parent / Guardian Phone</label>
-        <input type="tel">
-      </div>
-    </div>
-
-    <h2>Documents</h2>
-    <div class="note">
-      <strong>Photo & Address Proof:</strong><br>
-      For your privacy and security, this website does not upload or store these documents yet.
-      Please bring the member photo and address proof to the library when submitting the application.
-      Online document upload will be enabled only after the secure library server is ready.
-    </div>
-
-    <div class="grid" style="margin-top:14px">
-      <div>
-        <label>Member Photo</label>
-        <input type="text" value="Submit at library" readonly>
-      </div>
-      <div>
-        <label>Address Proof</label>
-        <input type="text" value="Submit at library" readonly>
-      </div>
-    </div>
-
-    <h2>Declaration</h2>
-    <div class="checks">
-      <label><input type="checkbox" required> I confirm that the information provided above is correct.</label>
-      <label><input type="checkbox" required> I agree to follow the rules and regulations of the library.</label>
-    </div>
-
-    <div class="note" style="margin-top:18px">
-      <strong>Current yearly membership fee:</strong><br>
-      Balavedi: ₹25 &nbsp; | &nbsp; General Member: ₹50<br>
-      Other category fee details may be confirmed at the library.
-    </div>
-
-    <div class="footer-sign">
-      <div class="sign">Applicant / Parent Signature</div>
-      <div class="sign">Librarian / Authorised Signature</div>
-    </div>
-
-    <div class="note" style="margin-top:18px">
-      <strong>Future online submission:</strong><br>
-      When the library software is ready, submitted applications will appear in a private
-      <em>Pending Online Applications</em> section for the librarian to review, approve or reject.
-      Member photos and address proofs will be stored privately on the secure library server, not on GitHub.
-    </div>
-
-    <div class="actions">
-      <button type="button" class="primary" onclick="window.print()">Print / Save as PDF</button>
-      <button type="reset" class="secondary">Clear Form</button>
-    </div>
-  </form>
-
-  <p class="small" style="margin-top:20px">
-    Librarian: Akash T · 9037585705
-  </p>
 </div>
+</div></section>
+
+<footer><div class="wrap foot"><img src="library-logo.png" alt=""><div><b>Student's Union Library &amp; Recreation Centre</b><br><small>Poonthura · Reg. No. 01/TVM/3952</small></div><small>© <span data-year></span></small></div></footer>
+<script src="site.js"></script>
+<script src="portal-config.js"></script>
+<script>
+(function(){
+  const url = window.SULARC_PORTAL_URL && window.SULARC_PORTAL_URL("membership");
+  const btn = document.getElementById("portalButton");
+  const msg = document.getElementById("portalMessage");
+  const title = document.getElementById("portalTitle");
+  if(url){
+    btn.href = url;
+    btn.classList.remove("portal-disabled");
+    btn.removeAttribute("aria-disabled");
+    btn.target = "_blank";
+    title.textContent = "Service available";
+    msg.textContent = "The secure library portal is connected. Use the button below to continue.";
+  } else {
+    btn.addEventListener("click", function(e){ e.preventDefault(); });
+  }
+})();
+</script>
 </body>
 </html>

@@ -16,3 +16,14 @@
 .committee-note{margin-top:18px;font-size:.92rem}
 @media(max-width:900px){.office-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.office-grid{grid-template-columns:1fr}}
+
+/* Website v13 — public portal integration */
+.portal-readiness{background:#edf6ff;border-bottom:1px solid #d4e6f5;padding:14px 0}
+.portal-ready-box{display:flex;gap:12px;align-items:center;justify-content:center;text-align:center;flex-wrap:wrap;color:#23415f}
+.portal-ready-box strong{color:var(--navy)}
+.portal-connect-card{max-width:780px;margin:auto;background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:12px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:20px;box-shadow:0 10px 30px rgba(12,40,75,.06)}
+.portal-status-icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#f5eedc;font-size:1.6rem}
+.portal-connect-card h2{margin:0 0 8px;color:var(--navy)}
+.portal-note{margin-top:14px;color:var(--muted);font-size:.9rem}
+.portal-disabled{opacity:.58;cursor:not-allowed;background:#66788b}
+@media(max-width:600px){.portal-connect-card{grid-template-columns:1fr}.portal-status-icon{width:48px;height:48px}}
