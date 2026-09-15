@@ -2,7 +2,7 @@
 // Leave baseUrl blank until the library has a permanent HTTPS portal address.
 // Do NOT use 127.0.0.1, a LAN IP, or a temporary trycloudflare URL.
 window.SULARC_PORTAL = {
-  baseUrl: "",
+  baseUrl: "https://sularc1985.pythonanywhere.com",
   paths: {
     catalogue: "/public-catalogue",
     membership: "/apply-membership",
