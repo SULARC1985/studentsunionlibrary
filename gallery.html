@@ -74,131 +74,29 @@ Be especially careful with photographs of children.
 </footer>
 
 <script src="site.js"></script>
+const photoBox = document.createElement("figure");
+photoBox.style.margin = "0";
 
-<script>
-const root = document.getElementById("galleryAlbums");
+photoBox.appendChild(img);
 
-const API =
-  "https://sularc1985.pythonanywhere.com/api/public/gallery";
+if (photo.caption || photo.caption_ml) {
+  const figcaption = document.createElement("figcaption");
+  figcaption.style.padding = "8px 4px";
+  figcaption.style.fontSize = "14px";
 
-function addText(parent, tag, value) {
-  if (!value) return;
-
-  const element = document.createElement(tag);
-  element.textContent = value;
-  parent.appendChild(element);
-}
-
-async function loadGallery() {
-
-  try {
-
-    const response = await fetch(API, {
-      cache: "no-store"
-    });
-
-    if (!response.ok) {
-      throw new Error("Gallery API unavailable");
-    }
-
-    const data = await response.json();
-
-    const albums = Array.isArray(data.albums)
-      ? data.albums
-      : [];
-
-    root.replaceChildren();
-
-    if (albums.length === 0) {
-      addText(root, "p", "No gallery albums published yet.");
-      return;
-    }
-
-    albums.forEach(album => {
-
-      const card = document.createElement("article");
-      card.className = "card gallery-album";
-
-      const photos = Array.isArray(album.photos)
-        ? album.photos
-        : [];
-
-      if (photos.length) {
-
-        const grid = document.createElement("div");
-        grid.className = "gallery-grid";
-
-        photos.forEach(photo => {
-
-          if (!photo.url) return;
-
-          const img = document.createElement("img");
-
-          img.src = photo.url;
-          img.alt =
-            photo.caption ||
-            photo.caption_ml ||
-            album.title ||
-            "Library gallery photo";
-
-          img.loading = "lazy";
-
-          grid.appendChild(img);
-
-        });
-
-        card.appendChild(grid);
-
-      } else {
-
-        const placeholder = document.createElement("div");
-        placeholder.className = "gallery-placeholder";
-        placeholder.textContent = "📷";
-
-        card.appendChild(placeholder);
-
-      }
-
-      addText(card, "h3", album.title);
-      addText(card, "p", album.title_ml);
-
-      addText(card, "p", album.description);
-      addText(card, "p", album.description_ml);
-
-      if (album.album_date) {
-        addText(card, "p", album.album_date);
-      }
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent =
-        photos.length +
-        (photos.length === 1 ? " photo" : " photos");
-
-      card.appendChild(badge);
-
-      root.appendChild(card);
-
-    });
-
-  } catch (error) {
-
-    root.replaceChildren();
-
-    addText(
-      root,
-      "p",
-      "Gallery is temporarily unavailable. Please try again later."
-    );
-
-    console.error("Gallery loading error:", error);
-
+  if (photo.caption) {
+    addText(figcaption, "div", photo.caption);
   }
 
+  if (photo.caption_ml) {
+    addText(figcaption, "div", photo.caption_ml);
+  }
+
+  photoBox.appendChild(figcaption);
 }
 
-loadGallery();
-</script>
+grid.appendChild(photoBox);
 
-</body>
-</html>
+
+
+  
