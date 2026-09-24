@@ -6,11 +6,23 @@
   const API =
     "https://sularc1985.pythonanywhere.com/public-catalogue.json";
 
-  async function searchBooks(query) {
+  async function searchBooks(query, category, language, availability) {
     const url = new URL(API);
 
     if (query) {
       url.searchParams.set("q", query);
+    }
+
+    if (category) {
+      url.searchParams.set("category", category);
+    }
+
+    if (language) {
+      url.searchParams.set("language", language);
+    }
+
+    if (availability) {
+      url.searchParams.set("availability", availability);
     }
 
     const response = await fetch(url.toString(), {
@@ -31,4 +43,5 @@
   }
 
   window.SULARC_SEARCH_BOOKS = searchBooks;
+
 })();
