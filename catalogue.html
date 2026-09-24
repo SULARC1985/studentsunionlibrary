@@ -30,7 +30,43 @@
   </div>
 </div>
 </div></section>
+<section class="section" id="live-catalogue">
+  <div class="wrap">
 
+    <span class="eyebrow">Online Book Search</span>
+    <h2>Search Our Library Books</h2>
+
+    <p>
+      Search by book title, author or catalogue number.
+      Book availability is updated from the library software.
+    </p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:20px 0">
+      <input
+        id="bookSearch"
+        type="search"
+        placeholder="Enter book title, author or catalogue number"
+        aria-label="Search library books"
+        style="flex:1;min-width:220px;padding:12px"
+      >
+
+      <button
+        id="bookSearchButton"
+        type="button"
+        class="primary"
+      >
+        Search Books
+      </button>
+    </div>
+
+    <p id="bookSearchStatus" role="status">
+      Loading library catalogue...
+    </p>
+
+    <div id="bookSearchResults"></div>
+
+  </div>
+</section>
 <footer><div class="wrap foot"><img src="library-logo.png" alt=""><div><b>Student's Union Library &amp; Recreation Centre</b><br><small>Poonthura · Reg. No. 01/TVM/3952</small></div><small>© <span data-year></span></small></div></footer>
 <script src="site.js"></script>
 <script src="portal-config.js"></script>
