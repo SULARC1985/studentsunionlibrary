@@ -91,10 +91,9 @@
     try {
       const books = await window.SULARC_SEARCH_BOOKS(query);
 
-      status.textContent = books.length
-        ? "Showing " + books.length +
-          " books. Search results are limited to 100 books."
-        : "No matching books found.";
+     status.textContent = books.length
+  ? "Showing " + books.length + (books.length === 1 ? " book." : " books.") + " Search results are limited to 100 books."
+  : "No matching books found.";
 
       const table = document.createElement("table");
       table.style.width = "100%";
