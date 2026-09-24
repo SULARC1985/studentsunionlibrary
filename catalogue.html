@@ -57,7 +57,32 @@
         Search Books
       </button>
     </div>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:15px 0">
 
+  <label style="flex:1;min-width:180px">
+    Category
+    <select id="bookCategory" style="display:block;width:100%;padding:12px">
+      <option value="">All Categories</option>
+    </select>
+  </label>
+
+  <label style="flex:1;min-width:150px">
+    Language
+    <select id="bookLanguage" style="display:block;width:100%;padding:12px">
+      <option value="">All Languages</option>
+    </select>
+  </label>
+
+  <label style="flex:1;min-width:150px">
+    Availability
+    <select id="bookAvailability" style="display:block;width:100%;padding:12px">
+      <option value="">All Books</option>
+      <option value="Available">Available</option>
+      <option value="Issued">Issued</option>
+    </select>
+  </label>
+
+</div>
     <p id="bookSearchStatus" role="status">
       Loading library catalogue...
     </p>
