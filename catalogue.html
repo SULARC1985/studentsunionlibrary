@@ -100,6 +100,10 @@
   "use strict";
 
   const input = document.getElementById("bookSearch");
+  const category = document.getElementById("bookCategory");
+const language = document.getElementById("bookLanguage");
+const availability = document.getElementById("bookAvailability");
+  
   const button = document.getElementById("bookSearchButton");
   const status = document.getElementById("bookSearchStatus");
   const results = document.getElementById("bookSearchResults");
@@ -114,7 +118,12 @@
     button.disabled = true;
 
     try {
-      const books = await window.SULARC_SEARCH_BOOKS(query);
+      const books = await window.SULARC_SEARCH_BOOKS(
+  query,
+  category.value,
+  language.value,
+  availability.value
+);
 
      status.textContent = books.length
   ? "Showing " + books.length + (books.length === 1 ? " book." : " books.") + " Search results are limited to 100 books."
@@ -198,8 +207,10 @@
     btn.target = "_blank";
     title.textContent = "Service available";
     msg.textContent = "The secure library portal is connected. Use the button below to continue.";
-  } else {
-    btn.addEventListener("click", function(e){ e.preventDefault(); });
+    } else {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+    });
   }
 })();
 </script>
