@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -183,7 +184,11 @@ const availability = document.getElementById("bookAvailability");
     }
   }
 
-  button.addEventListener("click", showBooks);
+   button.addEventListener("click", showBooks);
+
+  category.addEventListener("change", showBooks);
+  language.addEventListener("change", showBooks);
+  availability.addEventListener("change", showBooks);
 
   input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
