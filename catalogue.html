@@ -70,6 +70,98 @@
 <footer><div class="wrap foot"><img src="library-logo.png" alt=""><div><b>Student's Union Library &amp; Recreation Centre</b><br><small>Poonthura · Reg. No. 01/TVM/3952</small></div><small>© <span data-year></span></small></div></footer>
 <script src="site.js"></script>
 <script src="portal-config.js"></script>
+  <script src="catalogue-live.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const input = document.getElementById("bookSearch");
+  const button = document.getElementById("bookSearchButton");
+  const status = document.getElementById("bookSearchStatus");
+  const results = document.getElementById("bookSearchResults");
+
+  if (!input || !button || !status || !results) return;
+
+  async function showBooks() {
+    const query = input.value.trim();
+
+    status.textContent = "Searching library books...";
+    results.replaceChildren();
+    button.disabled = true;
+
+    try {
+      const books = await window.SULARC_SEARCH_BOOKS(query);
+
+      status.textContent = books.length
+        ? "Showing " + books.length +
+          " books. Search results are limited to 100 books."
+        : "No matching books found.";
+
+      const table = document.createElement("table");
+      table.style.width = "100%";
+
+      const headings = [
+        "Catalogue No.",
+        "Book Title",
+        "Author",
+        "Category",
+        "Language",
+        "Availability"
+      ];
+
+      const header = document.createElement("tr");
+
+      headings.forEach(function (heading) {
+        const th = document.createElement("th");
+        th.textContent = heading;
+        header.appendChild(th);
+      });
+
+      table.appendChild(header);
+
+      books.forEach(function (book) {
+        const row = document.createElement("tr");
+
+        [
+          book.catalogue_no,
+          book.title,
+          book.author,
+          book.category,
+          book.language,
+          book.availability
+        ].forEach(function (value) {
+          const td = document.createElement("td");
+          td.textContent = value || "—";
+          td.style.padding = "10px";
+          row.appendChild(td);
+        });
+
+        table.appendChild(row);
+      });
+
+      results.appendChild(table);
+
+    } catch (error) {
+      status.textContent =
+        "Unable to load the catalogue. Please try again.";
+      console.warn("Catalogue error:", error.message);
+
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  button.addEventListener("click", showBooks);
+
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      showBooks();
+    }
+  });
+
+  showBooks();
+})();
+</script>
 <script>
 (function(){
   const url = window.SULARC_PORTAL_URL && window.SULARC_PORTAL_URL("catalogue");
