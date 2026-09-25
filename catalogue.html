@@ -121,7 +121,12 @@ const availability = document.getElementById("bookAvailability");
   const button = document.getElementById("bookSearchButton");
   const status = document.getElementById("bookSearchStatus");
   const results = document.getElementById("bookSearchResults");
+const previousButton = document.getElementById("bookPrevious");
+const nextButton = document.getElementById("bookNext");
+const pageInfo = document.getElementById("bookPageInfo");
 
+let currentPage = 1;
+let totalPages = 1;
   if (!input || !button || !status || !results) return;
 
   async function showBooks() {
