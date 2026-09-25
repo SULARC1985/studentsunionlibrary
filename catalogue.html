@@ -146,7 +146,13 @@ let totalPages = 1;
 );
 
 const books = data.books;
+totalPages = data.total_pages;
 
+pageInfo.textContent =
+  "Page " + data.page + " of " + totalPages;
+
+previousButton.disabled = currentPage <= 1;
+nextButton.disabled = currentPage >= totalPages;
      status.textContent = data.total
   ? "Showing " + books.length + " of " + data.total + " books. Page " + data.page + " of " + data.total_pages + "."
   : "No matching books found.";
