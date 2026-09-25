@@ -128,8 +128,8 @@ const availability = document.getElementById("bookAvailability");
 
 const books = data.books;
 
-     status.textContent = books.length
-  ? "Showing " + books.length + (books.length === 1 ? " book." : " books.") + " Search results are limited to 100 books."
+     status.textContent = data.total
+  ? "Showing " + books.length + " of " + data.total + " books. Page " + data.page + " of " + data.total_pages + "."
   : "No matching books found.";
 
       const table = document.createElement("table");
