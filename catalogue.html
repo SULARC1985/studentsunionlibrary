@@ -223,7 +223,10 @@ nextButton.addEventListener("click", function () {
     showBooks();
   }
 });
-   button.addEventListener("click", showBooks);
+   button.addEventListener("click", function () {
+  currentPage = 1;
+  showBooks();
+});
 
   category.addEventListener("change", showBooks);
   language.addEventListener("change", showBooks);
