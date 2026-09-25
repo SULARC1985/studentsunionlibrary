@@ -210,7 +210,19 @@ nextButton.disabled = currentPage >= totalPages;
       button.disabled = false;
     }
   }
+previousButton.addEventListener("click", function () {
+  if (currentPage > 1) {
+    currentPage--;
+    showBooks();
+  }
+});
 
+nextButton.addEventListener("click", function () {
+  if (currentPage < totalPages) {
+    currentPage++;
+    showBooks();
+  }
+});
    button.addEventListener("click", showBooks);
 
   category.addEventListener("change", showBooks);
