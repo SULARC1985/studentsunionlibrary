@@ -6,7 +6,7 @@
   const API =
     "https://sularc1985.pythonanywhere.com/public-catalogue.json";
 
-  async function searchBooks(query, category, language, availability) {
+  async function searchBooks(query, category, language, availability, page = 1) {
     const url = new URL(API);
 
     if (query) {
@@ -25,6 +25,8 @@
       url.searchParams.set("availability", availability);
     }
 
+    url.searchParams.set("page", page);
+
     const response = await fetch(url.toString(), {
       cache: "no-cache"
     });
@@ -33,13 +35,13 @@
       throw new Error("Catalogue service unavailable");
     }
 
-    const books = await response.json();
+    const data = await response.json();
 
-    if (!Array.isArray(books)) {
+    if (!data || !Array.isArray(data.books)) {
       throw new Error("Invalid catalogue response");
     }
 
-    return books;
+    return data;
   }
 
   window.SULARC_SEARCH_BOOKS = searchBooks;
