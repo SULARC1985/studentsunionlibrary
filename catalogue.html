@@ -119,12 +119,14 @@ const availability = document.getElementById("bookAvailability");
     button.disabled = true;
 
     try {
-      const books = await window.SULARC_SEARCH_BOOKS(
+      const data = await window.SULARC_SEARCH_BOOKS(
   query,
   category.value,
   language.value,
   availability.value
 );
+
+const books = data.books;
 
      status.textContent = books.length
   ? "Showing " + books.length + (books.length === 1 ? " book." : " books.") + " Search results are limited to 100 books."
